@@ -15,5 +15,9 @@ fn main() -> Result<()> {
             pretty_print,
             object_hash,
         } => commands::cat_file::execute(pretty_print, object_hash),
+        Command::HashObject { write, file } => {
+            commands::hash_object::execute(write, file)
+        }
+        Command::LsTree { name_only } => commands::name_only::execute(name_only)
     }
 }

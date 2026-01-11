@@ -1,3 +1,5 @@
+use std::path::PathBuf;
+
 use clap::{Parser, Subcommand};
 
 #[derive(Parser, Debug)]
@@ -17,8 +19,14 @@ pub enum Command {
         // Positional argument: the SHA hash of the object to display
         object_hash: String,
     },
-    // HashObject {
-    //     #[clap(short = 'w')]
-    //     write: String,
-    // },
+    HashObject {
+        #[clap(short = 'w')]
+        write: bool,
+
+        file: PathBuf,
+    },
+    LsTree {
+        #[clap(long)]
+        name_only: bool,
+    },
 }
